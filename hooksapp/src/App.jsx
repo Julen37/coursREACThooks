@@ -1,5 +1,7 @@
 import './App.css'
+import ClassCount from './components/ClassCount'
 import ClassState from './components/ClassState'
+import FunctionCount from './components/FunctionCount'
 import FunctionState from './components/FunctionState'
 import Todo from './components/Todo'
 
@@ -13,6 +15,10 @@ function App() {
         <FunctionState/>
         <hr />
         <Todo/>
+        <hr />
+        {/* <ClassCount/> */}
+        <hr />
+        <FunctionCount/>
       </div>
   )
 }
