@@ -3,6 +3,7 @@ import ClassCount from './components/ClassCount'
 import ClassState from './components/ClassState'
 import FunctionCount from './components/FunctionCount'
 import FunctionState from './components/FunctionState'
+import TestUseEffect from './components/TestUseEffect'
 import Todo from './components/Todo'
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
         {/* <ClassCount/> */}
         <hr />
         <FunctionCount/>
+        <hr />
+        <TestUseEffect/>
       </div>
   )
 }
