@@ -22,6 +22,7 @@ function FunctionCount() {
     ) 
     // le tableau count a la fin permet d'optimiser pour preciser que ca se met a jour que pour le count et pas pour le name/input 
     // si le count est pas modifié ca fait pas la mise a jour
+    // si le tableau est vide ca prendra en compte que le montage / la maj au clic ne relancera pas le useEffect / ca fait un ComponentDidMount
 
   return (
     <div>
