@@ -1,12 +1,19 @@
+import React, { useState } from 'react'
 import './App.css'
 import ClassCount from './components/ClassCount'
 import ClassState from './components/ClassState'
 import FunctionCount from './components/FunctionCount'
 import FunctionState from './components/FunctionState'
+import Profile from './components/Profile'
 import TestUseEffect from './components/TestUseEffect'
 import Todo from './components/Todo'
+import { UserContext } from './components/MyContext'
 
 function App() {
+
+  const [user, setUser] = useState(
+    {name: "Lisa", age: 8}
+  )
 
   return (
       <div className='container'>
@@ -24,6 +31,11 @@ function App() {
         <FunctionCount/>
         <hr />
         <TestUseEffect/>
+        <hr />
+        <p>exo 10 / UseContext</p>
+        <UserContext.Provider value={user}>
+          <Profile/>
+        </UserContext.Provider>
       </div>
   )
 }
