@@ -17,8 +17,10 @@ function App() {
         <hr />
         <Todo/>
         <hr />
+        <p>Class Count</p>
         {/* <ClassCount/> */}
         <hr />
+        <p>Function Count</p>
         <FunctionCount/>
         <hr />
         <TestUseEffect/>
