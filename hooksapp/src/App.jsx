@@ -7,7 +7,7 @@ import FunctionState from './components/FunctionState'
 import Profile from './components/Profile'
 import TestUseEffect from './components/TestUseEffect'
 import Todo from './components/Todo'
-import { UserContext } from './components/MyContext'
+import { UserContext, ColorContext } from './components/MyContext'
 
 function App() {
 
@@ -34,7 +34,9 @@ function App() {
         <hr />
         <p>exo 10 / UseContext</p>
         <UserContext.Provider value={user}>
-          <Profile/>
+          <ColorContext.Provider value={'pink'}>
+            <Profile/>
+          </ColorContext.Provider>
         </UserContext.Provider>
       </div>
   )

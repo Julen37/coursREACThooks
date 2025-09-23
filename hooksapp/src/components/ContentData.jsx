@@ -1,4 +1,4 @@
-import { UserContext } from "./MyContext"
+import { ColorContext, UserContext } from "./MyContext"
 
 const ContentData = () => {
   return (
@@ -13,12 +13,20 @@ const ContentData = () => {
         { 
             user => {
                 return (
-                    <div>
-                        <ul>
-                            <li>Nom : {user.name}</li>
-                            <li>Age : {user.age}</li>
-                        </ul>
-                    </div>
+                    <ColorContext.Consumer>
+                    {
+                        color => {
+                            return (
+                                <div style={{color : color}}>
+                                    <ul>
+                                        <li>Nom : {user.name}</li>
+                                        <li>Age : {user.age}</li>
+                                    </ul>
+                                </div>
+                            )
+                        }
+                    }
+                    </ColorContext.Consumer>
                 )
             }
         }
