@@ -8,6 +8,7 @@ import Profile from './components/Profile'
 import TestUseEffect from './components/TestUseEffect'
 import Todo from './components/Todo'
 import { UserContext, ColorContext } from './components/MyContext'
+import Count from './components/Count'
 
 function App() {
 
@@ -38,6 +39,9 @@ function App() {
             <Profile/>
           </ColorContext.Provider>
         </UserContext.Provider>
+        <hr />
+        <p>exo 11 / UseReducer</p>
+        <Count/>
       </div>
   )
 }
