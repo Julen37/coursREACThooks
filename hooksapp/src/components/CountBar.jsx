@@ -1,6 +1,8 @@
 import React from 'react'
 
-function CountBar({count, bgColor}) {
+function CountBar({text, count, bgColor}) {
+
+    console.log(`Pourcentage ${text}`)
 
     const progress = {width: `${count}%`};
 
@@ -17,4 +19,4 @@ function CountBar({count, bgColor}) {
   )
 }
 
-export default CountBar
+export default React.memo(CountBar)

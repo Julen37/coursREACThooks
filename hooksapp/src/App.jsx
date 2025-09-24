@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useCallback, useState} from 'react'
 import './App.css'
 import ClassCount from './components/ClassCount'
 import ClassState from './components/ClassState'
@@ -21,16 +21,18 @@ function App() {
   const [countOne, setCountOne] = useState({value: 0, btnColor: 'success', increment: 25 })
   const [countTwo, setCountTwo] = useState({value: 0, btnColor: 'danger', increment: 20 })
 
-  const  incrementCountOne = (val) => {
+  const  incrementCountOne = useCallback((val) => {
+    console.log('je suis dans incrementcountone')
     countOne.value < 100 && setCountOne({...countOne, value: countOne.value + val})
-  } 
+  }, [countOne])
   // declaration de la fonction fléchée qui prend pour parametre val qui sera la valeur ajouté
   // si la valeur de countone est strictement inferieur a 100 on execute la suite
   // on prend les données du state de countone et on modifie son ancienne valeur en ajoutant la nouvelle (aka l'increment 25 ici qu'on rappel dans le bouton)
+  // le usecallback sert ici a ce que ca refresh seulement le countone et pas le counttwo avec quand countone est changé
 
-  const  incrementCountTwo = (val) => {
+  const  incrementCountTwo = useCallback((val) => {
     countTwo.value < 100 && setCountTwo({...countTwo, value: countTwo.value + val})
-  } 
+  }, [countTwo])
 
   return (
       <div className='container'>
@@ -60,8 +62,8 @@ function App() {
         <CountReducer/>
         <hr />
         <p>UseCallBack</p>
-        <CountBar count={countOne.value} bgColor={countOne.btnColor}/>
-        <CountBar count={countTwo.value} bgColor={countTwo.btnColor}/>
+        <CountBar text="CountOne" count={countOne.value} bgColor={countOne.btnColor}/>
+        <CountBar text="CountTwo" count={countTwo.value} bgColor={countTwo.btnColor}/>
         <Button handleClick={incrementCountOne} btnColor={countOne.btnColor} increment={countOne.increment}> Count 1</Button>
         <Button handleClick={incrementCountTwo} btnColor={countTwo.btnColor} increment={countTwo.increment}> Count 2</Button>
       </div>
