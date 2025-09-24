@@ -13,7 +13,7 @@ const reducer = (state, action) => {
     }
 }
 
-function Count() {
+function CountReducer() {
     
 // const [state, dispatch] = useReducer(reducer, {count: 0});
 // const [countState, countDispatch] = useReducer(reducer, 0,)
@@ -30,4 +30,4 @@ const [count, dispatch] = useReducer(reducer, initialState);
   )
 }
 
-export default Count
+export default CountReducer
