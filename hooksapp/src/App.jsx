@@ -1,11 +1,11 @@
-// import { useCallback, useState} from 'react'
+import { useCallback, useState} from 'react'
 
-// import './App.css'
+import './App.css'
 import ClassCount from './components/ClassCount'
 import ClassState from './components/ClassState'
 import FunctionCount from './components/FunctionCount'
 import FunctionState from './components/FunctionState'
-// import Profile from './components/Profile'
+import Profile from './components/Profile'
 import TestUseEffect from './components/TestUseEffect'
 import Todo from './components/Todo'
 import { UserContext, ColorContext } from './components/MyContext'
@@ -16,13 +16,14 @@ import CountBar from './components/CountBar'
 import Home from './pages/Home'
 import About from './pages/About'
 import ProfileRouter from './pages/ProfileRouter'
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom' //import du react router
+import PrivateRoute from './components/PrivateRoute' // pour les routes privée
 
 function App() {
 
-  // const [user, setUser] = useState(
-  //   {name: "Lisa", age: 8}
-  // )
+  const [user, setUser] = useState(
+    {name: "Lisa", age: 8}
+  )
 
   // const [countOne, setCountOne] = useState({value: 0, btnColor: 'success', increment: 25 })
   // const [countTwo, setCountTwo] = useState({value: 0, btnColor: 'danger', increment: 20 })
@@ -40,6 +41,10 @@ function App() {
   //   countTwo.value < 100 && setCountTwo({...countTwo, value: countTwo.value + val})
   // }, [countTwo])
 
+//router
+  const [isAdmin, setIsAdmin] = useState(true); // ou false pour non-admin, 
+  // si on met false on pourra plus aller sur profileRouter car ca dirigera sur home
+
   return (
     <BrowserRouter>
         <nav>
@@ -48,7 +53,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/about" element={<About/>}/>
-          <Route path="/profile" element={<ProfileRouter/>}/>
+          <Route path="/profile" 
+            element={
+              <PrivateRoute isAdmin={isAdmin}>
+                <ProfileRouter user={user} />
+              </PrivateRoute>
+            }
+          />
         </Routes>
     </BrowserRouter>
 
