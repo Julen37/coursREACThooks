@@ -19,6 +19,8 @@ import ProfileRouter from './pages/ProfileRouter'
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom' //import du react router
 import PrivateRoute from './components/PrivateRoute' // pour les routes privée
 
+import ClickSayHello from './components/ClickSayHello'
+
 function App() {
 
   const [user, setUser] = useState(
@@ -94,6 +96,9 @@ function App() {
         <CountBar text="CountTwo" count={countTwo.value} bgColor={countTwo.btnColor}/>
         <Button handleClick={incrementCountOne} btnColor={countOne.btnColor} increment={countOne.increment}> Count 1</Button>
         <Button handleClick={incrementCountTwo} btnColor={countTwo.btnColor} increment={countTwo.increment}> Count 2</Button>
+        <hr />
+        <p>Custom Hooks</p>
+        <ClickSayHello/>
       </div>
   )
 }
