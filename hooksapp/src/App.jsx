@@ -20,6 +20,7 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom' //import d
 import PrivateRoute from './components/PrivateRoute' // pour les routes privée
 
 import ClickSayHello from './components/ClickSayHello'
+import MyContacts from './components/MyContacts'
 
 function App() {
 
@@ -99,6 +100,9 @@ function App() {
         <hr />
         <p>Custom Hooks</p>
         <ClickSayHello/>
+        <hr />
+        <p>search</p>
+        <MyContacts/>
       </div>
   )
 }

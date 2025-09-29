@@ -21,6 +21,25 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+#table {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+}
+#table th {
+  text-align: center;
+  background-color: lightcoral;
+  color: "#fff";
+  border: 1px solid white;
+  padding: 12px;
+}
+
+#table td, #table th {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
