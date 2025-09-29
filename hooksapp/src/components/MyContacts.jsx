@@ -8,6 +8,7 @@ const MyContacts = () => {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState('');
+  const [resultSearch, setResultSearch] = useState([]);
 
   useEffect(() => { // api pour faire comme si on avait une bdd
     fetch('https://jsonplaceholder.typicode.com/users')
@@ -18,6 +19,10 @@ const MyContacts = () => {
       })
       .catch(error => console.log(error.message))
   }, [])
+
+  useEffect(() => { //search bar
+    search !== '' ? filterUsers() : setResultSearch([])
+  }, [search]);
 
   // console.log(search);
   console.log(users);
@@ -35,6 +40,16 @@ const MyContacts = () => {
       )
   }
 
+  const filterUsers = () => { // filter de la seach bar
+    const foundUsers = users.filter(user => {
+      return Object.values(user)
+      .join('')
+      .toLowerCase()
+      .includes(search.toLowerCase())
+    })
+    setResultSearch(foundUsers);
+  }
+
   return (
     <div>
       {
@@ -45,7 +60,13 @@ const MyContacts = () => {
         />
         )
       }
-      <TableUsers dataArray={users}/>
+      {/* <TableUsers dataArray={users}/> */}
+      {
+        resultSearch.length === 0 && search !== '' ? msgDisplay('Pas de résultat', 'red')
+        : search === '' ? null 
+        // : search === '' ? msgDisplay('Pas de résultat', 'green') 
+        : <TableUsers dataArray={resultSearch}/>
+      }
     </div>
   )
 }
